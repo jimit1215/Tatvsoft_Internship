@@ -1,0 +1,103 @@
+-- Create database
+CREATE DATABASE TEMP_SECOND;
+
+-- Create table
+CREATE TABLE learner (
+	l_id BIGINT PRIMARY KEY,
+	l_name VARCHAR(100),
+	level INT
+);
+
+-- Read table
+SELECT * FROM learner;
+
+-- Add column into table
+ALTER TABLE learner ADD COLUMN department VARCHAR(20);
+
+-- Delete column from table
+ALTER TABLE learner DROP COLUMN department,
+					DROP COLUMN level;
+
+-- Rename column
+ALTER TABLE learner RENAME COLUMN l_name TO full_name;
+
+-- Rename table
+ALTER TABLE learner RENAME TO university_learner;
+
+-- Add multiple columns
+ALTER TABLE university_learner 
+	ADD COLUMN level INT NOT NULL,
+	ADD COLUMN department VARCHAR(20) NOT NULL;
+
+-- Delete table with data
+DROP TABLE university_learner;
+
+-- Create department table
+CREATE TABLE university_department (
+	d_id SERIAL PRIMARY KEY,
+	d_name VARCHAR(20) UNIQUE NOT NULL
+);
+
+-- Insert values into department table
+INSERT INTO university_department(d_name) VALUES ('EEE'),('CE'),('AE'),('BBA');
+
+-- Read data
+SELECT * FROM university_department;
+
+-- Create learner table
+CREATE TABLE learner (
+	l_id SERIAL PRIMARY KEY,
+	l_name VARCHAR(100) NOT NULL,
+	level INT NOT NULL,
+	department VARCHAR(20) NOT NULL
+);
+
+-- Insert values into table
+INSERT INTO learner(l_name, level, department) VALUES ('Nikhil', 6, 'EEE');
+INSERT INTO learner(l_name, level, department) VALUES 
+	('X', 6, 'EEE'),
+	('Y', 6, 'CE'),
+	('Z', 6, 'CE'),
+	('X', 6, 'AE'),
+	('W', 6, 'CE'),
+	('V', 4, 'CE'),
+	('Y', 4, 'CE'),
+	('T', 2, 'BBA');
+
+-- Order by
+SELECT l_name FROM learner ORDER BY l_name ASC;
+SELECT l_name, department FROM learner ORDER BY l_name ASC, department DESC;
+
+-- WHERE clause
+SELECT * FROM learner WHERE level = 6;
+SELECT * FROM learner WHERE level = 6 AND department = 'EEE';
+SELECT * FROM learner WHERE department IN ('EEE', 'CE');
+SELECT l_name FROM learner WHERE l_name LIKE '%X%';
+SELECT l_name FROM learner WHERE l_name ILIKE '%X%';
+SELECT l_name FROM learner WHERE l_name ILIKE '_X%';
+
+-- JOIN
+SELECT * FROM learner AS l INNER JOIN university_department AS d ON l.department = d.d_name;
+SELECT * FROM learner AS l LEFT JOIN university_department AS d ON l.department = d.d_name;
+SELECT * FROM learner AS l RIGHT JOIN university_department AS d ON l.department = d.d_name;
+SELECT * FROM learner AS l FULL JOIN university_department AS d ON l.department = d.d_name;
+
+
+-- Aggregation with GROUP BY
+SELECT COUNT(level) FROM learner;
+SELECT level, COUNT(level) FROM learner GROUP BY level;
+
+-- GROUP BY with HAVING
+SELECT level, COUNT(level) FROM learner AS l GROUP BY level HAVING COUNT(l.department) > 1;
+
+-- Subqueries
+SELECT * FROM learner WHERE department IN (SELECT d_name FROM university_department);
+SELECT * FROM learner WHERE EXISTS (SELECT 1 FROM university_department WHERE learner.department = university_department.d_name);
+SELECT * FROM learner WHERE department = ANY (SELECT d_name FROM university_department);
+SELECT * FROM learner WHERE department LIKE ANY (ARRAY['E%', '___']);
+
+-- Update row
+UPDATE learner SET l_name = 'XYZ' WHERE l_id = 3;
+
+-- Delete row
+DELETE FROM learner WHERE l_id = 5;
