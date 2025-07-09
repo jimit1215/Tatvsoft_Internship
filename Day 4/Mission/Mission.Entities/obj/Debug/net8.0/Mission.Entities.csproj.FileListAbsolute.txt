@@ -1,0 +1,12 @@
+D:\tatvasoft intern\Day 4\Mission\Mission.Entities\bin\Debug\net8.0\Mission.Entities.deps.json
+D:\tatvasoft intern\Day 4\Mission\Mission.Entities\bin\Debug\net8.0\Mission.Entities.dll
+D:\tatvasoft intern\Day 4\Mission\Mission.Entities\bin\Debug\net8.0\Mission.Entities.pdb
+D:\tatvasoft intern\Day 4\Mission\Mission.Entities\obj\Debug\net8.0\Mission.Entities.csproj.AssemblyReference.cache
+D:\tatvasoft intern\Day 4\Mission\Mission.Entities\obj\Debug\net8.0\Mission.Entities.GeneratedMSBuildEditorConfig.editorconfig
+D:\tatvasoft intern\Day 4\Mission\Mission.Entities\obj\Debug\net8.0\Mission.Entities.AssemblyInfoInputs.cache
+D:\tatvasoft intern\Day 4\Mission\Mission.Entities\obj\Debug\net8.0\Mission.Entities.AssemblyInfo.cs
+D:\tatvasoft intern\Day 4\Mission\Mission.Entities\obj\Debug\net8.0\Mission.Entities.csproj.CoreCompileInputs.cache
+D:\tatvasoft intern\Day 4\Mission\Mission.Entities\obj\Debug\net8.0\Mission.Entities.dll
+D:\tatvasoft intern\Day 4\Mission\Mission.Entities\obj\Debug\net8.0\refint\Mission.Entities.dll
+D:\tatvasoft intern\Day 4\Mission\Mission.Entities\obj\Debug\net8.0\Mission.Entities.pdb
+D:\tatvasoft intern\Day 4\Mission\Mission.Entities\obj\Debug\net8.0\ref\Mission.Entities.dll
